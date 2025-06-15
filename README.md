@@ -1,5 +1,17 @@
-# VUE
-## Componentes
+- [1. VUE](#1-vue)
+  - [1.1. Componentes](#11-componentes)
+  - [1.2. Directivas](#12-directivas)
+    - [1.2.1. v-if](#121-v-if)
+    - [1.2.2. v-else](#122-v-else)
+    - [1.2.3. v-else-if](#123-v-else-if)
+    - [1.2.4. v-show](#124-v-show)
+    - [1.2.5. v-for](#125-v-for)
+    - [1.2.6. v-bind](#126-v-bind)
+    - [1.2.7. vbind:style](#127-vbindstyle)
+    - [1.2.8. v-on](#128-v-on)
+    - [1.2.9. v-model](#129-v-model)
+# 1. VUE
+## 1.1. Componentes
 ```vue
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -19,16 +31,16 @@ export default defineComponent({
 </script>
 
 ```
-## Directivas
-### v-if
+## 1.2. Directivas
+### 1.2.1. v-if
 - La directiva `v-if` se utiliza para renderizar un bloque de código condicionalmente. Si la expresión evaluada es verdadera, el bloque se renderiza; de lo contrario, no se renderiza.
-### v-else
+### 1.2.2. v-else
 - La directiva `v-else` se utiliza junto con `v-if` para proporcionar una alternativa cuando la condición de `v-if` es falsa. Debe colocarse inmediatamente después de un bloque `v-if`.
-### v-else-if
+### 1.2.3. v-else-if
 - La directiva `v-else-if` se utiliza para agregar condiciones adicionales a un bloque `v-if`. Permite evaluar múltiples condiciones en secuencia.
-### v-show
+### 1.2.4. v-show
 - La directiva `v-show` se utiliza para mostrar u ocultar un elemento basado en una expresión booleana. A diferencia de `v-if`, `v-show` no elimina el elemento del DOM, sino que simplemente cambia su estilo `display` entre `none` y su valor original.
-### v-for
+### 1.2.5. v-for
 - La directiva `v-for` se utiliza para renderizar una lista de elementos a partir de un array. Permite iterar sobre los elementos del array y crear un nuevo elemento para cada uno de ellos.
 ```vue
 <template>
@@ -80,7 +92,7 @@ let countries:Ref<Array<ICountry>>= ref([
 
 <style scoped></style>
 ```
-### v-bind
+### 1.2.6. v-bind
 - La directiva `v-bind` se utiliza para enlazar atributos de un elemento a una expresión de Vue. Permite actualizar dinámicamente los atributos del elemento en función de los datos del componente.
 ```vue
 <template>
@@ -106,7 +118,7 @@ export default defineComponent({
 }
 </style>
 ```
-### vbind:style
+### 1.2.7. vbind:style
 - La directiva `v-bind:style` se utiliza para aplicar estilos en línea a un elemento HTML. Permite enlazar un objeto de estilos a un elemento, lo que facilita la personalización dinámica de los estilos.
 ```vue
 <template>
@@ -125,7 +137,7 @@ import { ref } from 'vue'
 
 </style>
 ```
-### v-on
+### 1.2.8. v-on
 - La directiva `v-on` se utiliza para escuchar eventos en un elemento HTML. Permite ejecutar una función o método cuando ocurre un evento específico, como un clic o un cambio de valor.
 ```vue
 <template>
@@ -146,7 +158,7 @@ const handleClick = () => {c.value = '#ff0000'}
 
 </style>
 ```
-### v-model
+### 1.2.9. v-model
 - La directiva `v-model` se utiliza para crear un enlace bidireccional entre un elemento de formulario y una propiedad del componente. Permite que los cambios en el valor del elemento se reflejen automáticamente en la propiedad del componente y viceversa.
 ```vue
 <template>
