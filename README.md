@@ -10,6 +10,18 @@
     - [1.2.7. vbind:style](#127-vbindstyle)
     - [1.2.8. v-on](#128-v-on)
     - [1.2.9. v-model](#129-v-model)
+  - [Comunicación Vertical Y Ciclo De Vida](#comunicación-vertical-y-ciclo-de-vida)
+    - [beforeCreate](#beforecreate)
+    - [created](#created)
+    - [beforeMount](#beforemount)
+    - [mounted](#mounted)
+    - [beforeUpdate](#beforeupdate)
+    - [updated](#updated)
+    - [beforeUnmounted](#beforeunmounted)
+    - [unmounted](#unmounted)
+    - [En Opction API](#en-opction-api)
+    - [En Composition API](#en-composition-api)
+    - [Comunicación Vertical](#comunicación-vertical)
 # 1. VUE
 ## 1.1. Componentes
 ```vue
@@ -203,5 +215,151 @@ const handleClick = () => {c.value = '#ff0000'}
 
 <style scoped>
 
+</style>
+```
+## Comunicación Vertical Y Ciclo De Vida
+### beforeCreate
+- Se ejecuta antes de que se inicialicen las propiedades reactivas y los eventos del componente. En este punto, el componente aún no está completamente configurado.
+### created
+- Se ejecuta después de que el componente ha sido creado y las propiedades reactivas han sido inicializadas. En este punto, el componente está listo para ser utilizado, pero aún no se ha montado en el DOM.
+### beforeMount
+- Se ejecuta justo antes de que el componente sea montado en el DOM. En este punto, el componente aún no es visible en la página.
+### mounted
+- Se ejecuta después de que el componente ha sido montado en el DOM. En este punto, el componente es visible en la página y se pueden realizar manipulaciones del DOM.
+### beforeUpdate
+- Se ejecuta antes de que el componente sea actualizado debido a un cambio en sus propiedades reactivas. En este punto, el componente aún no ha sido renderizado con los nuevos datos.
+### updated
+- Se ejecuta después de que el componente ha sido actualizado y renderizado con los nuevos datos. En este punto, el componente refleja los cambios realizados en sus propiedades reactivas.
+### beforeUnmounted
+- Se ejecuta justo antes de que el componente sea desmontado del DOM. En este punto, el componente aún es visible en la página, pero se está preparando para ser eliminado.
+### unmounted
+- Se ejecuta después de que el componente ha sido desmontado del DOM. En este punto, el componente ya no es visible en la página y se han limpiado los recursos asociados a él.
+
+### En Opction API
+```vue
+<script lang="ts">
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+    name: 'CycleOption',
+    created() {
+        console.log('created');
+    },
+    mounted() {
+        console.log('mounted');
+    },
+})
+</script>
+```
+### En Composition API
+```vue
+<template>
+<div></div>
+</template>
+
+<script lang="ts" setup>
+import { onMounted } from 'vue';
+
+onMounted(() => {
+    console.log('mounted');
+});
+
+</script>
+
+<style scoped>
+
+</style>
+```
+### Comunicación Vertical
+- En Vue, la comunicación vertical se refiere a la forma en que los componentes se comunican entre sí a través de la jerarquía de componentes. Los componentes padres pueden pasar datos a sus hijos mediante props, y los hijos pueden emitir eventos para notificar a sus padres sobre cambios o acciones.
+```vue
+<template>
+    <div class="container">
+        <PostDetail v-for="(post, index) in info" :key="index" :title="post.title" 
+        :content="post.content" @sayHi="showAlert" />
+    </div>
+</template>
+
+<script lang="ts" setup>
+import PostDetail from './PostDetail.vue';
+interface Post {
+    title: string;
+    content: string;
+}
+let info: Array<Post> = [
+    { title: 'Post 1', content: 'Content for post 1' },
+    { title: 'Post 2', content: 'Content for post 2' },
+    { title: 'Post 3', content: 'Content for post 3' },
+    { title: 'Post 4', content: 'Content for post 4' },
+    { title: 'Post 5', content: 'Content for post 5' }
+];
+function showAlert(msg: string) {
+    alert(msg);
+}
+</script>
+
+<style scoped>
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 1rem;
+}
+</style>
+```
+```vue
+<template>
+<div class="post">
+    <h3>{{ props.title }}</h3>
+    <p>{{ props.content }}</p>
+    <button @click="handleClick">Di hola</button>
+</div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+export default defineComponent({
+    name: 'PostDetail',
+    props: {
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: false,
+            default: 'Este post no tiene contenido'
+        }
+    },
+    emits: ['sayHi'],
+    setup(props, { emit }) {
+        // You can add any additional logic here if needed
+        const handleClick = () => {
+            emit('sayHi', `Hola desde ${props.title}`);
+        };
+        return {
+            props,
+            handleClick
+        };
+    }
+});
+</script>
+
+<style scoped>
+.post {
+    
+    width: 300px;
+    /* height: 100px; */
+    background-color: #a1a996;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 </style>
 ```
