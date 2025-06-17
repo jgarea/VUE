@@ -25,6 +25,7 @@
   - [Dato computado](#dato-computado)
   - [Directivas personalizadas](#directivas-personalizadas)
   - [Servicios](#servicios)
+  - [Estilos](#estilos)
 # 1. VUE
 ## 1.1. Componentes
 ```vue
@@ -544,3 +545,19 @@ app.mount('#app')
 ```
 ## Servicios
 - Los servicios en Vue son objetos que encapsulan lógica de negocio o funcionalidad reutilizable que puede ser compartida entre diferentes componentes. Se utilizan para separar la lógica de negocio de la presentación y facilitar la reutilización del código.
+
+## Estilos
+LESS y SASS son preprocesadores de CSS que permiten escribir estilos de manera más eficiente y organizada. Ambos ofrecen características como variables, anidamiento, mixins y funciones, lo que facilita la creación y mantenimiento de estilos complejos.
+```ts
+const { defineConfig } = require('@vue/cli-service')
+module.exports = defineConfig({
+  transpileDependencies: true,
+  css:{
+    loaderOptions:{
+      sass: {
+        additionalData: `@use "@/scss/variables" as *;`
+      }
+    }
+  }
+})
+```

@@ -17,6 +17,10 @@ import PostService from '@/services/PostService';
    
 </script>
 
-<style scoped>
-
+<style scoped lang="scss" >
+    .post-list li {
+        color: $blue;
+        font-size: 20px;
+        list-style-type: none;
+    }
 </style>
