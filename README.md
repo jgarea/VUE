@@ -26,6 +26,7 @@
   - [Directivas personalizadas](#directivas-personalizadas)
   - [Servicios](#servicios)
   - [Estilos](#estilos)
+    - [Bootstrap](#bootstrap)
 # 1. VUE
 ## 1.1. Componentes
 ```vue
@@ -561,3 +562,6 @@ module.exports = defineConfig({
   }
 })
 ```
+### Bootstrap
+`npm install --save bootstrap`
+`npm install --save @popperjs/core`
