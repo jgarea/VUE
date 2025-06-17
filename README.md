@@ -10,23 +10,27 @@
     - [1.2.7. vbind:style](#127-vbindstyle)
     - [1.2.8. v-on](#128-v-on)
     - [1.2.9. v-model](#129-v-model)
-  - [Comunicación Vertical Y Ciclo De Vida](#comunicación-vertical-y-ciclo-de-vida)
-    - [beforeCreate](#beforecreate)
-    - [created](#created)
-    - [beforeMount](#beforemount)
-    - [mounted](#mounted)
-    - [beforeUpdate](#beforeupdate)
-    - [updated](#updated)
-    - [beforeUnmounted](#beforeunmounted)
-    - [unmounted](#unmounted)
-    - [En Opction API](#en-opction-api)
-    - [En Composition API](#en-composition-api)
-    - [Comunicación Vertical](#comunicación-vertical)
-  - [Dato computado](#dato-computado)
-  - [Directivas personalizadas](#directivas-personalizadas)
-  - [Servicios](#servicios)
-  - [Estilos](#estilos)
-    - [Bootstrap](#bootstrap)
+  - [1.3. Comunicación Vertical Y Ciclo De Vida](#13-comunicación-vertical-y-ciclo-de-vida)
+    - [1.3.1. beforeCreate](#131-beforecreate)
+    - [1.3.2. created](#132-created)
+    - [1.3.3. beforeMount](#133-beforemount)
+    - [1.3.4. mounted](#134-mounted)
+    - [1.3.5. beforeUpdate](#135-beforeupdate)
+    - [1.3.6. updated](#136-updated)
+    - [1.3.7. beforeUnmounted](#137-beforeunmounted)
+    - [1.3.8. unmounted](#138-unmounted)
+    - [1.3.9. En Opction API](#139-en-opction-api)
+    - [1.3.10. En Composition API](#1310-en-composition-api)
+    - [1.3.11. Comunicación Vertical](#1311-comunicación-vertical)
+  - [1.4. Dato computado](#14-dato-computado)
+  - [1.5. Directivas personalizadas](#15-directivas-personalizadas)
+  - [1.6. Servicios](#16-servicios)
+  - [1.7. Estilos](#17-estilos)
+    - [1.7.1. Bootstrap](#171-bootstrap)
+  - [1.8. Enrutado](#18-enrutado)
+    - [1.8.1. Ruta con parámetros](#181-ruta-con-parámetros)
+    - [1.8.2. Enrutado con servicios](#182-enrutado-con-servicios)
+
 # 1. VUE
 ## 1.1. Componentes
 ```vue
@@ -222,25 +226,25 @@ const handleClick = () => {c.value = '#ff0000'}
 
 </style>
 ```
-## Comunicación Vertical Y Ciclo De Vida
-### beforeCreate
+## 1.3. Comunicación Vertical Y Ciclo De Vida
+### 1.3.1. beforeCreate
 - Se ejecuta antes de que se inicialicen las propiedades reactivas y los eventos del componente. En este punto, el componente aún no está completamente configurado.
-### created
+### 1.3.2. created
 - Se ejecuta después de que el componente ha sido creado y las propiedades reactivas han sido inicializadas. En este punto, el componente está listo para ser utilizado, pero aún no se ha montado en el DOM.
-### beforeMount
+### 1.3.3. beforeMount
 - Se ejecuta justo antes de que el componente sea montado en el DOM. En este punto, el componente aún no es visible en la página.
-### mounted
+### 1.3.4. mounted
 - Se ejecuta después de que el componente ha sido montado en el DOM. En este punto, el componente es visible en la página y se pueden realizar manipulaciones del DOM.
-### beforeUpdate
+### 1.3.5. beforeUpdate
 - Se ejecuta antes de que el componente sea actualizado debido a un cambio en sus propiedades reactivas. En este punto, el componente aún no ha sido renderizado con los nuevos datos.
-### updated
+### 1.3.6. updated
 - Se ejecuta después de que el componente ha sido actualizado y renderizado con los nuevos datos. En este punto, el componente refleja los cambios realizados en sus propiedades reactivas.
-### beforeUnmounted
+### 1.3.7. beforeUnmounted
 - Se ejecuta justo antes de que el componente sea desmontado del DOM. En este punto, el componente aún es visible en la página, pero se está preparando para ser eliminado.
-### unmounted
+### 1.3.8. unmounted
 - Se ejecuta después de que el componente ha sido desmontado del DOM. En este punto, el componente ya no es visible en la página y se han limpiado los recursos asociados a él.
 
-### En Opction API
+### 1.3.9. En Opction API
 ```vue
 <script lang="ts">
 import { defineComponent } from 'vue'
@@ -256,7 +260,7 @@ export default defineComponent({
 })
 </script>
 ```
-### En Composition API
+### 1.3.10. En Composition API
 ```vue
 <template>
 <div></div>
@@ -275,7 +279,7 @@ onMounted(() => {
 
 </style>
 ```
-### Comunicación Vertical
+### 1.3.11. Comunicación Vertical
 - En Vue, la comunicación vertical se refiere a la forma en que los componentes se comunican entre sí a través de la jerarquía de componentes. Los componentes padres pueden pasar datos a sus hijos mediante props, y los hijos pueden emitir eventos para notificar a sus padres sobre cambios o acciones.
 ```vue
 <template>
@@ -387,7 +391,7 @@ const handleClick = () => {
    
 </script>
 ```
-## Dato computado
+## 1.4. Dato computado
 - Los datos computados son propiedades que se calculan en función de otras propiedades reactivas. Se utilizan para realizar cálculos o transformaciones en los datos y se actualizan automáticamente cuando las propiedades de las que dependen cambian.
 Option API:
 ```vue
@@ -441,7 +445,7 @@ const reversedMessage = computed(() =>
      
 </script>
 ```
-## Directivas personalizadas
+## 1.5. Directivas personalizadas
 - Las directivas personalizadas son extensiones de las directivas incorporadas de Vue que permiten agregar funcionalidad personalizada a los elementos del DOM. Se pueden utilizar para manipular el DOM, agregar comportamientos personalizados o realizar tareas específicas.
 ```vue
 import { createApp } from 'vue'
@@ -544,10 +548,10 @@ app.directive('custom-font', {
 )
 app.mount('#app')
 ```
-## Servicios
+## 1.6. Servicios
 - Los servicios en Vue son objetos que encapsulan lógica de negocio o funcionalidad reutilizable que puede ser compartida entre diferentes componentes. Se utilizan para separar la lógica de negocio de la presentación y facilitar la reutilización del código.
 
-## Estilos
+## 1.7. Estilos
 LESS y SASS son preprocesadores de CSS que permiten escribir estilos de manera más eficiente y organizada. Ambos ofrecen características como variables, anidamiento, mixins y funciones, lo que facilita la creación y mantenimiento de estilos complejos.
 ```ts
 const { defineConfig } = require('@vue/cli-service')
@@ -562,6 +566,22 @@ module.exports = defineConfig({
   }
 })
 ```
-### Bootstrap
+### 1.7.1. Bootstrap
 `npm install --save bootstrap`
 `npm install --save @popperjs/core`
+
+## 1.8. Enrutado
+- El enrutado en Vue se maneja principalmente a través de la biblioteca Vue Router, que permite definir rutas y navegar entre diferentes vistas o componentes en una aplicación Vue. Vue Router proporciona una forma sencilla de gestionar la navegación y el estado de la aplicación.
+
+### 1.8.1. Ruta con parámetros
+```ts
+<li><router-link :to="{name: 'post', params: { id: 1 }}">Primer Post</router-link></li>
+```
+```ts
+{
+    path: '/blog/:id',
+    name: 'post',
+    component: PostView
+}
+```
+### 1.8.2. Enrutado con servicios
