@@ -22,6 +22,9 @@
     - [En Opction API](#en-opction-api)
     - [En Composition API](#en-composition-api)
     - [Comunicación Vertical](#comunicación-vertical)
+  - [Dato computado](#dato-computado)
+  - [Directivas personalizadas](#directivas-personalizadas)
+  - [Servicios](#servicios)
 # 1. VUE
 ## 1.1. Componentes
 ```vue
@@ -363,3 +366,181 @@ export default defineComponent({
 }
 </style>
 ```
+```vue
+<script lang="ts" setup>
+  
+import { Ref,ref,defineProps,defineEmits} from 'vue';
+// You can add any additional logic here if needed
+const props = defineProps({
+    title: String,
+    content: {
+        type: String,
+        default: 'Este post no tiene contenido'
+    }
+});
+const emit = defineEmits(['sayHi']);
+const handleClick = () => {
+    emit('sayHi', `Hola desde ${props.title}`);
+};
+   
+</script>
+```
+## Dato computado
+- Los datos computados son propiedades que se calculan en función de otras propiedades reactivas. Se utilizan para realizar cálculos o transformaciones en los datos y se actualizan automáticamente cuando las propiedades de las que dependen cambian.
+Option API:
+```vue
+<script lang="ts">
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+    name: 'ComputedExample',
+    data() {
+        return {
+            message: '',    
+        }
+    },
+    computed: {
+        reversedMessage(): string {
+            return this.message.split('').reverse().join('');
+        }
+    }
+})
+</script>
+```
+Composition API:
+```vue
+<script lang="ts">
+import { defineComponent,ref,Ref,computed } from 'vue';
+
+export default defineComponent({
+    name: 'ComputedExample',
+    setup(){
+        let message:Ref<string> = ref('')
+        const reversedMessage = computed(() => 
+            message.value.split('').reverse().join('')
+        );
+        return {
+            message,
+            reversedMessage
+        }
+    }
+})
+</script>
+```
+```vue
+
+<script lang="ts" setup>
+import { ref,Ref,computed } from 'vue';
+
+let message:Ref<string> = ref('')
+const reversedMessage = computed(() => 
+    message.value.split('').reverse().join('')
+);
+     
+</script>
+```
+## Directivas personalizadas
+- Las directivas personalizadas son extensiones de las directivas incorporadas de Vue que permiten agregar funcionalidad personalizada a los elementos del DOM. Se pueden utilizar para manipular el DOM, agregar comportamientos personalizados o realizar tareas específicas.
+```vue
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.directive('font-size', {
+    beforeMount:(el,binding) =>{
+        el.style.fontSize = binding.value + 'px'
+    }
+})
+
+app.mount('#app')
+
+```
+```vue
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.directive('font-size', {
+    beforeMount:(el,binding) =>{
+        let size = 18;
+        switch (binding.arg) {
+            case 'sm':
+                size = 10;
+                break;
+            case 'md':
+                size = 16;
+                break;
+            case 'lg':
+                size = 20;
+                break;
+            default:
+                break;
+        }
+        el.style.fontSize = size + 'px';
+    }
+})
+
+app.mount('#app')
+```
+```vue
+import { createApp } from 'vue'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.directive('font-size', {
+    beforeMount:(el,binding) =>{
+        let size = 18;
+        switch (binding.arg) {
+            case 'sm':
+                size = 10;
+                break;
+            case 'md':
+                size = 16;
+                break;
+            case 'lg':
+                size = 20;
+                break;
+            default:
+                break;
+        }
+        el.style.fontSize = size + 'px';
+    }
+})
+app.directive('custom-font', {
+    beforeMount:(el,binding) =>{
+        let size = 18;
+
+        if(binding.modifiers.sm) {
+            size = 10;
+        }
+        if(binding.modifiers.md) {
+            size = 16;
+        }
+        if(binding.modifiers.lg) {
+            size = 20;
+        }
+        if(binding.modifiers.xxl) {
+            size = 30;
+        }
+        el.style.fontSize = size + 'px';
+        
+        if(binding.modifiers.red) {
+            el.style.color = 'red';
+        }
+        if(binding.modifiers.blue) {
+            el.style.color = 'blue';
+        }
+        if(binding.modifiers.green) {
+            el.style.color = 'green';
+        }
+        
+    }
+}
+)
+app.mount('#app')
+```
+## Servicios
+- Los servicios en Vue son objetos que encapsulan lógica de negocio o funcionalidad reutilizable que puede ser compartida entre diferentes componentes. Se utilizan para separar la lógica de negocio de la presentación y facilitar la reutilización del código.
