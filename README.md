@@ -31,6 +31,8 @@
     - [1.8.1. Ruta con parámetros](#181-ruta-con-parámetros)
     - [1.8.2. Enrutado con servicios](#182-enrutado-con-servicios)
   - [Autentificación](#autentificación)
+    - [JWT](#jwt)
+    - [Sesiones](#sesiones)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -589,3 +591,5 @@ module.exports = defineConfig({
 ``npm install vue-router``
 
 ## Autentificación
+### JWT
+### Sesiones
