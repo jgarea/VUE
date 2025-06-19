@@ -34,6 +34,11 @@
     - [JWT](#jwt)
     - [Sesiones](#sesiones)
     - [Autentificación contra backend](#autentificación-contra-backend)
+    - [Auth contra firebase](#auth-contra-firebase)
+    - [Auth con google](#auth-con-google)
+    - [Auth contra AWS](#auth-contra-aws)
+    - [Auth contra Azure](#auth-contra-azure)
+  - [Vuex](#vuex)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -596,3 +601,13 @@ module.exports = defineConfig({
 ### Sesiones
 
 ### Autentificación contra backend
+### Auth contra firebase
+### Auth con google
+### Auth contra AWS
+### Auth contra Azure
+
+## Vuex
+- Vuex es una biblioteca de gestión del estado para aplicaciones Vue.js. Proporciona un almacén centralizado para todos los componentes de la aplicación, lo que facilita la gestión y el seguimiento del estado compartido entre diferentes componentes.
+- state, getters, mutations, actions, modules
+- Data, Computed, set sync, set async, subdivide the store
+
