@@ -33,6 +33,7 @@
   - [Autentificación](#autentificación)
     - [JWT](#jwt)
     - [Sesiones](#sesiones)
+    - [Autentificación contra backend](#autentificación-contra-backend)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -593,3 +594,5 @@ module.exports = defineConfig({
 ## Autentificación
 ### JWT
 ### Sesiones
+
+### Autentificación contra backend
