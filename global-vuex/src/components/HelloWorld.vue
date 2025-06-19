@@ -5,21 +5,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
-import { mapState,mapMutations, mapGetters } from 'vuex';
+import { computed, defineComponent } from 'vue';
+import { useStore } from 'vuex';
 export default defineComponent({
   name: 'HelloWorld',
-  computed:{
-    ...mapState(['counter']),
-    ...mapGetters(['times2']),
-  },
-  methods:{
-    ...mapMutations(['setCounter']),
-    increment(){
-      this.setCounter(this.counter + 1);
-    }
-
+  setup() {
+      const store = useStore();
+      const counter = computed(() => store.state.counter);
+      const times2 = computed(() => store.getters.times2);
+      const increment = () => {
+        store.commit('setCounter', counter.value + 1);
+      };
+      return {
+        counter,
+        increment,
+        times2
+      };
   }
+  
 });
 </script>
 
