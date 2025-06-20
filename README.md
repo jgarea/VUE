@@ -39,6 +39,8 @@
     - [Auth contra AWS](#auth-contra-aws)
     - [Auth contra Azure](#auth-contra-azure)
   - [Vuex](#vuex)
+  - [Pinia](#pinia)
+  - [cookies y sessions](#cookies-y-sessions)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -611,3 +613,20 @@ module.exports = defineConfig({
 - state, getters, mutations, actions, modules
 - Data, Computed, set sync, set async, subdivide the store
 
+## Pinia
+- Pinia es una alternativa a Vuex para la gestión del estado en aplicaciones Vue.js. Es más ligera y fácil de usar, y se integra perfectamente con la Composition API de Vue 3.
+- Al igual que Vuex, Pinia utiliza un almacén centralizado, pero su API es más simple y se basa en la creación de "stores" individuales para cada módulo de la aplicación.
+
+``npm i pinia``
+```ts
+import { createApp } from 'vue'
+import App from './App.vue'
+import { createPinia } from 'pinia'
+
+const pinia = createPinia()
+const app = createApp(App)
+
+app.use(pinia).mount('#app')
+```
+
+## cookies y sessions
