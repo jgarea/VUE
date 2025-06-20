@@ -26,8 +26,11 @@ const authUser = () => {
     signInWithEmailAndPassword(auth, email.value, password.value)
         .then((userCredential) => {
             // Signed in
+            $cookie.set('user', userCredential.user.uid, { expires: '1h' });
+            $cookie.set('auth', userCredential.user.getIdToken()
             const user = userCredential.user;
             console.log('User signed in:', user);
+            console.log('User ID:', userCredential.user.uid);
         })
         .catch((error) => {
             const errorCode = error.code;
