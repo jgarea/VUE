@@ -632,3 +632,6 @@ app.use(pinia).mount('#app')
 ## cookies y sessions
 ``npm install vue-cookies``
 
+``npm install vue-session``
+
+

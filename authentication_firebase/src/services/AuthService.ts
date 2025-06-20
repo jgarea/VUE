@@ -33,6 +33,8 @@ class AuthService {
                 return false;
             }
             this.jwt.value = response.data.access_token;
+            // $session.start(); // Start a session
+            // $session.set('jwt', this.jwt.value); // Store JWT in session
             return true;
         } catch (error) {
             this.error.value = "An error occurred during login.";
