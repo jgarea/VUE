@@ -41,6 +41,8 @@
   - [Vuex](#vuex)
   - [Pinia](#pinia)
   - [cookies y sessions](#cookies-y-sessions)
+  - [Peticiones autenticadas y proteccion de rutas](#peticiones-autenticadas-y-proteccion-de-rutas)
+  - [Backend ejemplo](#backend-ejemplo)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -634,4 +636,8 @@ app.use(pinia).mount('#app')
 
 ``npm install vue-session``
 
+## Peticiones autenticadas y proteccion de rutas
+- Para realizar peticiones autenticadas, se puede utilizar la biblioteca Axios junto con Vuex o Pinia para gestionar el estado de autenticación. Se pueden configurar interceptores de Axios para agregar el token de autenticación a las cabeceras de las peticiones.
 
+## Backend ejemplo
+https://github.com/JJRuizDeveloper/vue-example-server/tree/main
