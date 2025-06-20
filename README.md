@@ -43,6 +43,7 @@
   - [cookies y sessions](#cookies-y-sessions)
   - [Peticiones autenticadas y proteccion de rutas](#peticiones-autenticadas-y-proteccion-de-rutas)
   - [Backend ejemplo](#backend-ejemplo)
+  - [Layout slots y composables](#layout-slots-y-composables)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -641,3 +642,7 @@ app.use(pinia).mount('#app')
 
 ## Backend ejemplo
 https://github.com/JJRuizDeveloper/vue-example-server/tree/main
+
+## Layout slots y composables
+- Los layout slots permiten a los componentes definir áreas específicas donde se puede insertar contenido dinámico. Esto es útil para crear diseños flexibles y reutilizables.
+- Los composables son funciones reutilizables que encapsulan lógica de negocio o funcionalidad específica. Se pueden utilizar en múltiples componentes y ayudan a mantener el código limpio y organizado.
