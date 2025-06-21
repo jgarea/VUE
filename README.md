@@ -45,6 +45,7 @@
   - [Backend ejemplo](#backend-ejemplo)
   - [Layout slots y composables](#layout-slots-y-composables)
   - [COMPONENTES DINÁMICOS](#componentes-dinámicos)
+  - [Transiciones e iconos](#transiciones-e-iconos)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -649,3 +650,5 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 - Los composables son funciones reutilizables que encapsulan lógica de negocio o funcionalidad específica. Se pueden utilizar en múltiples componentes y ayudan a mantener el código limpio y organizado.
 
 ## COMPONENTES DINÁMICOS
+
+## Transiciones e iconos
