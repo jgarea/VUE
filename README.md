@@ -46,6 +46,7 @@
   - [Layout slots y composables](#layout-slots-y-composables)
   - [COMPONENTES DINÁMICOS](#componentes-dinámicos)
   - [Transiciones e iconos](#transiciones-e-iconos)
+  - [Persistencia y watchers](#persistencia-y-watchers)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -653,3 +654,5 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 
 ## Transiciones e iconos
 ``npm i oh-vue-icons``
+
+## Persistencia y watchers
