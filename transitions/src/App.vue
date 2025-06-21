@@ -1,6 +1,6 @@
 <template>
 <TransitionGroup name="list" tag="ul">
-  <li v-for="note in notes" :key="note">{{ note }}</li>
+  <li v-for="note in notes" :key="note"><v-icon name="bi-filetype-js" animation="pulse" hover="true" />{{ note }}</li>
 </TransitionGroup>
 <input type="text" v-model="newNote" placeholder="Add a note">
 <button @click="addNote">Save note</button>

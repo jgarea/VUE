@@ -652,3 +652,4 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 ## COMPONENTES DINÁMICOS
 
 ## Transiciones e iconos
+``npm i oh-vue-icons``
