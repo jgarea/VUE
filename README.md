@@ -656,3 +656,5 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 ``npm i oh-vue-icons``
 
 ## Persistencia y watchers
+``npm i pinia``
+``npm i pinia-plugin-persistedstate``

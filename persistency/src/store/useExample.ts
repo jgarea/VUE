@@ -12,5 +12,8 @@ export const useExample = defineStore('useExample', {
         decrement() {
             this.count--;
         }
+    },
+    persist: {
+        storage: sessionStorage // or localStorage     
     }
 });
