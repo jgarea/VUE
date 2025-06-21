@@ -44,6 +44,7 @@
   - [Peticiones autenticadas y proteccion de rutas](#peticiones-autenticadas-y-proteccion-de-rutas)
   - [Backend ejemplo](#backend-ejemplo)
   - [Layout slots y composables](#layout-slots-y-composables)
+  - [COMPONENTES DINÁMICOS](#componentes-dinámicos)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -646,3 +647,5 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 ## Layout slots y composables
 - Los layout slots permiten a los componentes definir áreas específicas donde se puede insertar contenido dinámico. Esto es útil para crear diseños flexibles y reutilizables.
 - Los composables son funciones reutilizables que encapsulan lógica de negocio o funcionalidad específica. Se pueden utilizar en múltiples componentes y ayudan a mantener el código limpio y organizado.
+
+## COMPONENTES DINÁMICOS
