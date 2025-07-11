@@ -6,6 +6,7 @@
 <script lang="ts" setup>
 import { useExample } from '@/store/useExample';
 const store = useExample();
+store.init(); 
 </script>
 
 <style>

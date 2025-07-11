@@ -47,6 +47,8 @@
   - [COMPONENTES DINÁMICOS](#componentes-dinámicos)
   - [Transiciones e iconos](#transiciones-e-iconos)
   - [Persistencia y watchers](#persistencia-y-watchers)
+    - [LocalStorage](#localstorage)
+      - [Watchers](#watchers)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -658,3 +660,5 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 ## Persistencia y watchers
 ``npm i pinia``
 ``npm i pinia-plugin-persistedstate``
+### LocalStorage
+#### Watchers
