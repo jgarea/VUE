@@ -3,23 +3,18 @@
  <input type="text" v-model="note" >
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script lang="ts" setup>
+import { ref, watchEffect } from 'vue';
 
-export default defineComponent({
-  data() {
-    return {
-      note: ''
-    };
-  },
-  watch: {
-    note(value, oldValue) {
-      alert(`Nota alterada de "${oldValue}" para "${value}"`);
-      localStorage.setItem('note', value);
-    }
-  }
+const note = ref<string>('');
+
+watchEffect(() => {
+  alert(`Nota guardada: ${note.value}`);
+  localStorage.setItem('note', note.value);
 });
+
 </script>
+
 
 <style>
 
