@@ -49,6 +49,8 @@
   - [Persistencia y watchers](#persistencia-y-watchers)
     - [LocalStorage](#localstorage)
       - [Watchers](#watchers)
+  - [Control delegado por referencia](#control-delegado-por-referencia)
+  - [V-LAZY y WEBCHUCK](#v-lazy-y-webchuck)
 
 # 1. VUE
 ## 1.1. Componentes
@@ -662,3 +664,9 @@ https://github.com/JJRuizDeveloper/vue-example-server/tree/main
 ``npm i pinia-plugin-persistedstate``
 ### LocalStorage
 #### Watchers
+- watch y watchEffect
+## Control delegado por referencia
+- Como public en java
+## V-LAZY y WEBCHUCK
+- V-Lazy es una directiva que permite cargar imágenes de forma diferida, es decir, solo cuando están a punto de entrar en el viewport del usuario. Esto mejora el rendimiento de la página al reducir la carga inicial de recursos.
+- WebChuck es una herramienta que permite ejecutar código JavaScript en el navegador de forma interactiva. Permite a los desarrolladores probar y depurar código JavaScript directamente en el navegador, lo que facilita el desarrollo y la depuración de aplicaciones web.
