@@ -4,13 +4,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watchEffect } from 'vue';
+import { ref, watch } from 'vue';
 
 const note = ref<string>('');
 
-watchEffect(() => {
-  alert(`Nota guardada: ${note.value}`);
-  localStorage.setItem('note', note.value);
+watch(note, (newValue, oldValue) => {
+  alert(`Nota alterada de "${oldValue}" para "${newValue}"`);
+  localStorage.setItem('note', newValue);
 });
 
 </script>
